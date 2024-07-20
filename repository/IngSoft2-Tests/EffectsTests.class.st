@@ -122,7 +122,7 @@ self assert: ((aGameBoard specialEffectAtCell: 7) isKindOf:  WormHole) .
 { #category : #tests }
 EffectsTests >> test034GamePlayerFallsInWormHoleEffectThenChangePosition [
 | wormHole|
-wormHole:= WormHole  new.
+	wormHole := WormHole  createNew .
 
 self setUpLoadedDiceWith: #(1 1 ) and: #(6 4 ).
 self setUpGameWith: 1 andGameboardWith: 8 and: 2.
@@ -141,7 +141,7 @@ self assert: (aGameBoard checkPositionOf:  (aGameBoard player: 1) ) equals: 3 .
 { #category : #tests }
 EffectsTests >> test034bisGamePlayerFallsInWormHoleEffectThenChangePosition [
 | wormHole|
-wormHole:= WormHole  new.
+	wormHole := WormHole  createNew .
 
 self setUpLoadedDiceWith: #(1 1 ) and: #(1 4 ).
 self setUpGameWith: 1 andGameboardWith: 8 and: 2.
@@ -187,7 +187,7 @@ EffectsTests >> test036GamePlayerFallsInWormHoleAndThenSpeedUpOnlyWornHoleApplie
 self setUpLoadedDiceWith: #(1 1 ) and: #(6 4 ).
 self setUpGameWith: 1 andGameboardWith: 8 and: 2.
 
-wormHole:= WormHole  new.
+	wormHole := WormHole  createNew .
 speedUp := SpeedUp new.
 
 aGameBoard add: wormHole at: 7.
@@ -582,6 +582,27 @@ collection1 add: light2  .
 
 amountOfParsecsToMove add: collection1 .
 self should:[ HyperJump with: amountOfParsecsToMove ] raise: Error withMessage: 'Cannot create HyperJump with a collection out of order'.
+
+
+
+
+
+  
+]
+
+{ #category : #tests }
+EffectsTests >> test052GameUsingDrawEffect [
+| draw |
+self setUpLoadedDiceWith: #(1 1 ) and: #(2 4 ).
+self setUpGameWith: 1 andGameboardWith: 8 and: 2.
+draw:= DrawEffect with: aGame.
+aGameBoard add: draw  at: 3 .
+aGame throwNextPlayer.
+
+
+self assert: (  (((aGameBoard player: 1)shipCards)cardsInHand)size) equals: 3 .
+
+
 
 
 
