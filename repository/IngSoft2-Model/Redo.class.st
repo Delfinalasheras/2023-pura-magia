@@ -16,11 +16,12 @@ Redo class >> with: aShipsGame [
 
 { #category : #action }
 Redo >> apply: aGameBoard [
-
-	(cardToRedo isKindOf: Acceleration)
-		ifTrue: [  ]
-		ifFalse: [ cardToRedo selected: chosenShip ].
-	cardToRedo apply: aGameBoard.
+	(cardToRedo isOnlyForPlayers ) ifFalse:[
+		cardToRedo apply: aGameBoard.
+		]
+	ifTrue: [  
+		self redoForCardsApplyForPlayers: aGameBoard
+	].
 	^ cardToRedo
 ]
 
@@ -69,6 +70,15 @@ Redo >> permanent: aShipsGame verify: aNumberOfShip [
 { #category : #action }
 Redo >> redo: lastUsedCard [ 
 	cardToRedo := lastUsedCard .
+]
+
+{ #category : #action }
+Redo >> redoForCardsApplyForPlayers: aGameBoard [
+	(cardToRedo isKindOf: Acceleration)
+		ifTrue: [  ]
+		ifFalse: [ cardToRedo selected: chosenShip ].
+	cardToRedo apply: aGameBoard.
+	^ cardToRedo
 ]
 
 { #category : #instance }

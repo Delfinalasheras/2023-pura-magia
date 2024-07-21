@@ -1138,3 +1138,28 @@ CardsTests >> test039PlayWithReverseCardAtomicBombThenCancel [
 	self assert: (aGameBoard checkPositionOf:  (aGameBoard player: 1)) equals: 0 .
 	self assert: (aGameBoard checkPositionOf:  (aGameBoard player: 2)) equals: 0 .
 ]
+
+{ #category : #tests }
+CardsTests >> test040PlayWithReverseCardAndRedo [
+	| player player2  reverse speedUp redo|
+	self setUpLoadedDiceWith: #(1 1 ) and: #(2 2 ).
+	self setUpGameWith: 2 andGameboardWith: 8 and: 2.
+	speedUp := SpeedUp createNew.
+	reverse := Reverse with: aGame.
+	aGameBoard add: speedUp at: 3.
+	redo:= Redo with: aGame .
+	
+
+	player:= 1.
+	player2:=2.
+	aGame add: reverse to: player.
+	aGame add: redo to: player2.
+	
+	reverse from: player  to: 3 .
+	aGame throwNextPlayer .
+	redo from: player2  to: player2 .
+	aGame throwNextPlayer .
+
+	
+	self assert: (aGameBoard checkPositionOf:  (aGameBoard player: 1)) equals: 0 .
+]
