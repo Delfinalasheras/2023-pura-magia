@@ -142,11 +142,6 @@ GameBoard >> createCollectionFrom: aCollection [
 	^ newCollection
 ]
 
-{ #category : #creation }
-GameBoard >> createWithNew: aResult with: aShipPosition [ 
-	^(self verifyParsecsOf: aShipPosition at: aResult).
-]
-
 { #category : #action }
 GameBoard >> diceResultOf: aShip [
 	|dieResult|
