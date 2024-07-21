@@ -41,6 +41,11 @@ Reverse >> isOnlyForPlayers [
 ]
 
 { #category : #validation }
+Reverse >> permanent [
+	^true.
+]
+
+{ #category : #validation }
 Reverse >> permanent: aShipsGame verify: aNumberOfShip [ 
 		(aShipsGame playerTurn: aNumberOfShip) ifTrue:[	
 	(aShipsGame verify: self IsInHand: aNumberOfShip) ifTrue: [ 
