@@ -3,6 +3,7 @@
 ![GHA Status](https://github.com/Delfinalasheras/2023-pura-magia/actions/workflows/GHA.yml/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/Delfinalasheras/2023-pura-magia/badge.svg)](https://coveralls.io/github/Delfinalasheras/2023-pura-magia)
 
+
 ## Metacello
 
 ```smalltalk
