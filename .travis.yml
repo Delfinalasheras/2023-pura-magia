@@ -13,3 +13,5 @@ matrix:
   allow_failures:
   - smalltalk: Pharo64-alpha
   fast_finish: true
+
+            

@@ -237,15 +237,6 @@ GameBoard >> ranking [
 ]
 
 { #category : #action }
-GameBoard >> resultOf: aShip [
-	|dieResult|
-	dieResult  := 0.
-	dieResult  := self throwVariousDices: dieCollection .
-	dieResult := dieResult + (aShip   resultOfCards) + (self sumOfAccelerations).
-	^dieResult .
-]
-
-{ #category : #action }
 GameBoard >> specialCell: aNumberOfCell [ 
 	| targetCell |
 	targetCell:= aCollectionOfSpecialCells detect: [ :each | each numberOfSpecialCell  = aNumberOfCell].
