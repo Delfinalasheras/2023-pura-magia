@@ -13,6 +13,5 @@ matrix:
   allow_failures:
   - smalltalk: Pharo64-alpha
   fast_finish: true
-- name: Coveralls GitHub Action
-uses: coverallsapp/github-action@v2.3.0
+
             
